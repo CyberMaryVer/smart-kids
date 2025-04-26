@@ -1,0 +1,187 @@
+/* style.css for Streamlit Personality Test */
+
+/* --- Base & Variables --- */
+:root {
+    --primary-color: #6a11cb; /* Vibrant Purple */
+    --secondary-color: #2575fc; /* Bright Blue */
+    --accent-color: #ff6b6b; /* Coral/Accent */
+    --text-color: #262730; /* Dark Gray for text */
+    --light-text-color: #ffffff; /* White text */
+    --bg-color: #f0f2f6; /* Light background */
+    --widget-bg-color: #ffffff; /* White for widgets */
+    --border-radius: 12px; /* Rounded corners */
+    --font-main: 'Poppins', sans-serif; /* Clean sans-serif font */
+    --font-header: 'Roboto Slab', serif; /* Slightly bolder header font */
+}
+
+/* --- General Styles --- */
+body {
+    font-family: var(--font-main);
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+/* Target the main block container of Streamlit */
+.stApp > header {
+    background-color: transparent; /* Remove default header background */
+}
+
+.main .block-container {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+/* --- Headers & Text --- */
+h1, h2 {
+    font-family: var(--font-header);
+    /* Create a gradient text effect */
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    padding-bottom: 0.5rem;
+}
+
+h3 {
+    font-family: var(--font-header);
+    color: var(--primary-color);
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Style for the question text */
+.stMarkdown p, .stWrite p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem; /* Space below question */
+}
+
+/* Bolder question text maybe? */
+div[data-testid="stMarkdown"] > p:first-child { /* Often the question is the first paragraph */
+ font-weight: 600;
+ font-size: 1.2rem; /* Slightly larger */
+ color: #1E0542; /* Darker purple */
+}
+
+
+/* --- Radio Buttons (Answer Options) --- */
+div[data-testid="stRadio"] > label {
+    /* Style each radio option container */
+    background-color: var(--widget-bg-color);
+    padding: 18px 20px; /* Increased padding */
+    border-radius: var(--border-radius);
+    margin-bottom: 12px; /* Space between options */
+    border: 1px solid #ddd;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex; /* Align custom radio/text */
+    align-items: center;
+}
+
+/* Hover effect for options */
+div[data-testid="stRadio"] > label:hover {
+    border-color: var(--secondary-color);
+    box-shadow: 0 4px 15px rgba(37, 117, 252, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Style the text within the radio label */
+div[data-testid="stRadio"] label span {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-left: 10px; /* Space between custom radio and text */
+}
+
+/* Hide the default radio button */
+div[data-testid="stRadio"] input[type="radio"] {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+/* Custom radio button appearance (circle) */
+div[data-testid="stRadio"] label::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    min-width: 20px; /* Ensure size consistency */
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    margin-right: 12px;
+    background-color: var(--widget-bg-color);
+    transition: all 0.2s ease;
+    vertical-align: middle; /* Align with text better */
+}
+
+/* Custom radio button appearance when selected */
+div[data-testid="stRadio"] label:has(input[type="radio"]:checked)::before {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    box-shadow: inset 0 0 0 3px white; /* Creates the inner circle effect*/
+}
+
+
+/* --- Buttons --- */
+.stButton > button {
+    background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+    color: var(--light-text-color);
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: var(--border-radius);
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+}
+
+.stButton > button:hover {
+    box-shadow: 0 6px 15px rgba(106, 17, 203, 0.3);
+    transform: translateY(-2px);
+    filter: brightness(1.1); /* Slightly brighten */
+}
+
+.stButton > button:active {
+    transform: translateY(0px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Character Description Section --- */
+/* Assuming you use st.columns and st.markdown/st.expander for characters */
+div[data-testid="stVerticalBlock"] > [data-testid="stHorizontalBlock"] { /* Targets columns */
+   gap: 2rem; /* Spacing between character columns */
+}
+
+/* Style individual character boxes if inside columns */
+/* You might need to wrap character info in a div with a class via st.markdown */
+.character-box {
+    background-color: var(--widget-bg-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    text-align: center;
+    border-top: 5px solid var(--primary-color); /* Accent line */
+    height: 100%; /* Make boxes in a row same height */
+}
+
+.character-box h4 { /* Character Name */
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-header);
+    font-size: 1.3rem;
+}
+
+.character-box p { /* Character Description */
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #555; /* Slightly lighter text for description */
+}
+
+/* --- Add Google Fonts --- */
+/* Add this at the VERY TOP or VERY BOTTOM of the CSS file */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto+Slab:wght@400;700&display=swap');

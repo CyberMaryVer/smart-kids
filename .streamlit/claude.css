@@ -1,0 +1,211 @@
+/* styles.css */
+
+/* Custom fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Nunito:wght@400;600;700&display=swap');
+
+/* Main page styling */
+.main {
+    background-color: #f8f9fa;
+    font-family: 'Nunito', sans-serif;
+}
+
+/* Custom header styles */
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    background: linear-gradient(135deg, #3498db, #8e44ad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 10px 0;
+}
+
+/* Question styling */
+.stMarkdown h3 {
+    background-color: #4b7bec;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Radio button customization - IMPROVED CONTRAST */
+.stRadio > div {
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    margin-bottom: 10px;
+    transition: transform 0.2s ease;
+}
+
+.stRadio > div:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Improve radio button text contrast */
+.stRadio label {
+    color: #2c3e50 !important;
+    font-weight: 500 !important;
+    font-size: 1.05rem !important;
+}
+
+/* Radio button options when selected */
+.stRadio > div [data-baseweb="radio"] input:checked + div {
+    background-color: #3498db !important;
+    border-color: #3498db !important;
+}
+
+/* Character card styling */
+.character-card {
+    border-radius: 15px;
+    padding: 20px;
+    margin: 15px 0;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.character-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+}
+
+/* Character-specific styling with better text contrast */
+.arseny-card {
+    background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+}
+
+.kirill-card {
+    background: linear-gradient(135deg, #d4fc79, #96e6a1);
+}
+
+.ulyana-card {
+    background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+}
+
+.sofia-card {
+    background: linear-gradient(135deg, #ffecd2, #fcb69f);
+}
+
+.mia-card {
+    background: linear-gradient(135deg, #fccb90, #d57eeb);
+}
+
+/* Character content styling for better contrast */
+.character-card p {
+    color: #2c3e50 !important;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+/* Character name styling */
+.character-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+/* Button styling */
+.stButton > button {
+    background-color: #3498db;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    padding: 12px 25px;
+    border-radius: 30px;
+    border: none;
+    box-shadow: 0 4px 10px rgba(52, 152, 219, 0.4);
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.stButton > button:hover {
+    background-color: #2980b9;
+    box-shadow: 0 6px 15px rgba(52, 152, 219, 0.6);
+    transform: translateY(-2px);
+}
+
+/* Progress bar styling */
+.stProgress > div > div {
+    background-color: #3498db;
+    height: 10px;
+    border-radius: 10px;
+}
+
+.stProgress > div {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    height: 10px;
+}
+
+/* Result page customization */
+.result-container {
+    background-color: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin: 20px 0;
+}
+
+.result-title {
+    font-size: 2rem;
+    color: #3498db;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+.result-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+/* Animation for transitions */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .stMarkdown h3 {
+        font-size: 1rem;
+        padding: 12px;
+    }
+
+    .character-name {
+        font-size: 1.3rem;
+    }
+
+    .stButton > button {
+        padding: 10px 20px;
+    }
+
+    /* Improved mobile text contrast */
+    .stRadio label {
+        font-size: 0.95rem !important;
+    }
+}
