@@ -5,12 +5,12 @@ import os
 st.set_page_config(page_title="Career Aptitude Test", layout="wide")  # Using English title
 
 # --- CSS for Customization ---
-css_path = ".streamlit/styles.css"
-if os.path.exists(css_path):
-    with open(css_path) as f:
-        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-else:
-    print(f"CSS file not found: {css_path}")
+# css_path = ".streamlit/styles.css"
+# if os.path.exists(css_path):
+#     with open(css_path) as f:
+#         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+# else:
+#     print(f"CSS file not found: {css_path}")
 
 TEST_DESCRIPTION = """
 # ПРОФИ-РАДАР: ТВОЙ ПУТЬ К СУПЕРСИЛЕ! 🚀
