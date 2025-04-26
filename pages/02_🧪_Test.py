@@ -331,7 +331,7 @@ else:
         with col1:
             image_path = os.path.join("images", f"{top_category_key}.png")
             if os.path.exists(image_path):
-                st.image(image_path, use_column_width=True)
+                st.image(image_path, use_container_width=True)
             else:
                 st.caption(f"(Image {top_category_key}.png not found)")
 
