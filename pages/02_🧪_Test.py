@@ -8,7 +8,7 @@ from content.categories import categories_info
 from content.questions import questions_data
 
 # --- CSS for Customization ---
-css_path = ".streamlit/gpt.css"
+css_path = "./.streamlit/gpt.css"
 if os.path.exists(css_path):
     with open(css_path) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
@@ -118,7 +118,7 @@ def show_pie_chart(scores, background='transparent'):
 with st.sidebar:
     logo_path = os.path.join("images", "logo.png")
     if os.path.exists(logo_path):
-        st.image(logo_path, use_column_width=True)
+        st.image(logo_path, use_container_width=True)
     else:
         st.caption("(logo.png not found)")
     st.markdown("---")
